@@ -1,12 +1,13 @@
+// !Note: Try to use aspect-ratio based sizing instead of fixed margins (to set height)
 const width = window.innerWidth;
-const height = window.innerHeight;
+const height = window.innerHeight * 2;
 
-const svg = d3.select("#hero").append("svg")
+const svg = d3.select("#hero #map").append("svg")
   .attr("width", width)
   .attr("height", height);
 
 const projection = d3.geoMercator()
-  .center([78.9629, 22.5937]) // India center
+  .center([79.9629, 23.5937]) // India center (visually)
   .scale(width * 1.5)
   .translate([width / 2, height / 2]);
 
@@ -34,7 +35,7 @@ d3.json("https://raw.githubusercontent.com/Geohacker/india/master/state/india_st
       .attr("d", path)
       .on("mousemove", (event, d) => {
         const [x, y] = d3.pointer(event);
-        const stateName = d.properties.NAME_1; // ✅ Correct property
+        const stateName = d.properties.NAME_1; // Correct property
         const score = seviData[stateName];
         tooltip
           .style("left", (event.pageX + 15) + "px")
