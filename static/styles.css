@@ -1,26 +1,25 @@
 @import url(./styles/map_styles.css);
 @import url(./styles/nav_foot_styles.css);
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://api.fontshare.com/v2/css?f[]=plus-jakarta-sans@1,2&f[]=zodiak@1,2&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://api.fontshare.com/v2/css?f[]=plus-jakarta-sans@1,2&f[]=zodiak@1,2&display=swap");
 
 :root {
   /* bg colors */
-  --bg-primary: #3a3a3a;
-  --bg-secondary: #2a2a2a;
-  --bg-translucent: #aeaeae80;
+  --bg-primary: #2b2b2b;
+  --bg-secondary: #272421;
+  --bg-translucent: #afa7a230;
 
   /* text colors */
-  --text-primary: #ffffff;
-  --text-secondary: #bbbbbb;
-  --text-emphasis: #ffffffcc;
-  --text-subtext: #ddddddaa;
+  --text-primary: #f1ede8;
+  --text-secondary: #e5d5c3;
+  --text-subtext: #c9c8c9;
 
   /* map + chart colors */
-  --hover-color: #ffffff80;
-  --land-color: #2a2a2a;
-  --land-border: #ffffff;
+  --hover-color: #afa7a2;
+  --land-color: #afa7a270;
+  --land-border: #f1ede8;
   --tooltip-bg: #12121280;
-  --tooltip-text: #ffffff;
+  --tooltip-text: #f1ede8;
 }
 
 body {
@@ -28,15 +27,15 @@ body {
   max-width: 100%;
   background: var(--bg-primary);
   color: var(--text-primary);
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   /* !NOTE: Jugaad Fix for overflow */
   overflow-x: hidden;
 }
 
 ::selection,
 ::-moz-selection {
-  background: var(--bg-secondary);
-  color: var(--text-subtext);
+  background: var(--text-secondary);
+  color: var(--bg-primary);
   text-shadow: none;
 }
 
@@ -44,8 +43,22 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'Zodiak', serif;
+  font-family: "Zodiak", serif;
   color: var(--text-primary);
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0.5rem 0;
+}
+
+h1 em {
+  color: var(--text-secondary);
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin: 0.5rem 0;
 }
 
 section {
@@ -55,30 +68,48 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-size: 1.2rem;
   margin: 0;
 }
 
 section#home {
   padding-top: 20%;
+  min-height: 100vh;
 }
 
-section>.container {
+.subtext {
+  color: var(--text-subtext);
+  font-size: 1rem;
+  margin-top: -10px;
+}
+
+section > .container {
   display: flex;
   flex-direction: column;
   align-items: start;
   padding: 0 10%;
 }
 
-.whitepaper-link {
+.link-container {
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: center;
+  align-items: baseline;
   font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--text-emphasis);
+}
+.link {
+  color: var(--text-secondary);
   text-decoration: none;
   text-align: center;
 }
-
-.whitepaper-link:hover {
+.link a {
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+.link a:hover {
   color: var(--text-secondary);
   text-decoration: underline wavy var(--text-secondary) 2px;
   transition: all 0.3s;

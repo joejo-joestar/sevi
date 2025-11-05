@@ -1,72 +1,72 @@
 .navbar,
 .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--bg-translucent);
-    backdrop-filter: blur(5px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    height: fit-content;
-    width: 100%;
-    z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bg-translucent);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+  width: 100%;
+  z-index: 1000;
 }
 
 .navbar {
-    top: 0;
-    position: fixed;
+  top: 0;
+  position: fixed;
 }
 
 .footer {
-    bottom: 0;
-    padding: 10px 20px;
-    font-size: 0.9rem;
+  bottom: 0;
+  padding: 10px 20px;
+  font-size: 0.9rem;
 }
 
 .main-container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .logo-container {
-    padding: 5px 20px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  padding: 5px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .img-container {
-    height: auto;
-    width: 125px;
+  height: auto;
+  width: 125px;
 }
 
 .header-container {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  align-items: flex-start;
 }
 
 .header-container h1 {
-    margin: 0;
-    font-size: 2rem;
-    font-weight: 900;
-    color: var(--tooltip-text);
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--text-primary);
 }
 
 .nav-links {
-    display: flex;
-    gap: 30px;
-    padding: 5px 20px;
+  display: flex;
+  gap: 30px;
+  padding: 5px 20px;
 }
 
 .nav-links a {
-    color: var(--tooltip-text);
-    text-decoration: none;
-    font-size: 1.25rem;
-    font-weight: bold;
-    transition: color 0.3s;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+  transition: color 0.3s;
 }
 
 .nav-links a:hover {
-    color: var(--hover-color);
+  color: var(--text-secondary);
 }
