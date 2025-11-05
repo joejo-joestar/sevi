@@ -1,8 +1,8 @@
 // !Note: Try to use aspect-ratio based sizing instead of fixed margins (to set height)
 const width = window.innerWidth;
-const height = window.innerHeight * 2;
+const height = width / .95; // Approximate aspect ratio for India map
 
-const svg = d3.select("#hero #map").append("svg")
+const svg = d3.select("#home #map").append("svg")
   .attr("width", width)
   .attr("height", height);
 
@@ -16,13 +16,15 @@ const path = d3.geoPath(projection);
 const tooltip = d3.select("#tooltip");
 
 // Example SEVI scores for Indian states
+// !TODO: Import real data
 const seviData = {
-  "Maharashtra": 0.65,
-  "Karnataka": 0.58,
   "Delhi": 0.72,
+  "Karnataka": 0.58,
+  "Kerala": 0.99,
+  "Maharashtra": 0.65,
   "Tamil Nadu": 0.49,
   "Uttar Pradesh": 0.79,
-  "West Bengal": 0.68
+  "West Bengal": 0.68,
 };
 
 // Load India GeoJSON
