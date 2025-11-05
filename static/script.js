@@ -1,4 +1,3 @@
-// !Note: Try to use aspect-ratio based sizing instead of fixed margins (to set height)
 const width = window.innerWidth;
 const height = width / .95; // Approximate aspect ratio for India map
 

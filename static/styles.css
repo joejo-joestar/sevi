@@ -1,23 +1,51 @@
 @import url(./styles/map_styles.css);
 @import url(./styles/nav_foot_styles.css);
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=plus-jakarta-sans@1,2&f[]=zodiak@1,2&display=swap');
 
 :root {
-  --bg-color: #0b0b0b;
+  /* bg colors */
+  --bg-primary: #3a3a3a;
+  --bg-secondary: #2a2a2a;
+  --bg-translucent: #aeaeae80;
+
+  /* text colors */
+  --text-primary: #ffffff;
+  --text-secondary: #bbbbbb;
+  --text-emphasis: #ffffffcc;
+  --text-subtext: #ddddddaa;
+
+  /* map + chart colors */
+  --hover-color: #ffffff80;
   --land-color: #2a2a2a;
-  --nav-bg: #2a2a2ab5;
-  --hover-color: #ffffff7b;
-  --tooltip-bg: #12121240;
-  --tooltip-text: #fff;
+  --land-border: #ffffff;
+  --tooltip-bg: #12121280;
+  --tooltip-text: #ffffff;
 }
 
 body {
   margin: 0;
   max-width: 100%;
-  background: var(--bg-color);
-  color: var(--tooltip-text);
-  font-family: "Segoe UI";
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Plus Jakarta Sans', sans-serif;
   /* !NOTE: Jugaad Fix for overflow */
   overflow-x: hidden;
+}
+
+::selection,
+::-moz-selection {
+  background: var(--bg-secondary);
+  color: var(--text-subtext);
+  text-shadow: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Zodiak', serif;
+  color: var(--text-primary);
 }
 
 section {
@@ -45,13 +73,13 @@ section>.container {
   width: 100%;
   font-size: 1.2rem;
   font-weight: 700;
-  color: var(--tooltip-text);
+  color: var(--text-emphasis);
   text-decoration: none;
   text-align: center;
 }
 
 .whitepaper-link:hover {
-  color: var(--hover-color);
-  text-decoration: underline wavy var(--hover-color) 2px;
+  color: var(--text-secondary);
+  text-decoration: underline wavy var(--text-secondary) 2px;
   transition: all 0.3s;
 }
