@@ -1,0 +1,31 @@
+#map {
+    width: 100%;
+    height: fit-content;
+}
+
+.state {
+    fill: var(--land-color);
+    stroke: #555;
+    stroke-width: 0.5px;
+    transition: fill 0.3s, stroke 0.3s;
+}
+
+.state:hover {
+    fill: var(--hover-color);
+    stroke: #fff;
+    cursor: pointer;
+    filter: drop-shadow(0 0 6px white);
+}
+
+.tooltip {
+    position: absolute;
+    padding: 8px 12px;
+    background: var(--tooltip-bg);
+    border-radius: 8px;
+    pointer-events: none;
+    font-size: 14px;
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    overflow-x: hidden;
+}

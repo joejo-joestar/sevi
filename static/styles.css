@@ -1,3 +1,6 @@
+@import url(./styles/map_styles.css);
+@import url(./styles/nav_foot_styles.css);
+
 :root {
   --bg-color: #0b0b0b;
   --land-color: #2a2a2a;
@@ -17,132 +20,38 @@ body {
   overflow-x: hidden;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--nav-bg);
-  backdrop-filter: blur(5px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  height: fit-content;
-  width: 100%;
-  position: fixed;
-  top: 0;
-}
-
-.main-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.logo-container {
-  padding: 5px 20px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.img-container {
-  height: auto;
-  width: 125px;
-}
-
-.header-container {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  align-items: flex-start;
-}
-
-.header-container h1,
-.header-container h2 {
-  font-family: "Segoe UI", sans-serif;
-  margin: 0;
-  color: var(--tooltip-text);
-}
-
-.nav-links {
-  display: flex;
-  gap: 30px;
-  padding: 5px 20px;
-}
-
-.nav-links a {
-  color: var(--tooltip-text);
-  text-decoration: none;
-  font-size: 1.25rem;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-.nav-links a:hover {
-  color: var(--hover-color);
-}
-
-#hero {
-  width: 100%;
+section {
   min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  overflow-x: hidden;
   margin: 0;
-
 }
 
-#map {
+section#home {
+  padding-top: 20%;
+}
+
+section>.container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 0 10%;
+}
+
+.whitepaper-link {
   width: 100%;
-  min-height: 100vh;
-  height: fit-content;
-  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--tooltip-text);
+  text-decoration: none;
+  text-align: center;
 }
 
-/* !NOTE: Update this with a proper sizing logic in ./static/script.js */
-/* MARK: TO FIX */
-@media (max-width: 1500px) {
-  #hero {
-    margin: -15% 0;
-  }
-}
-
-@media (max-width: 1200px) {
-  #hero {
-    margin: -20% 0;
-  }
-
-}
-
-@media (max-width: 600px) {
-  #hero {
-    margin: -25% 0;
-  }
-}
-
-.state {
-  fill: var(--land-color);
-  stroke: #555;
-  stroke-width: 0.5px;
-  transition: fill 0.3s, stroke 0.3s;
-}
-
-.state:hover {
-  fill: var(--hover-color);
-  stroke: #fff;
-  cursor: pointer;
-  filter: drop-shadow(0 0 6px white);
-}
-
-.tooltip {
-  position: absolute;
-  padding: 8px 12px;
-  background: var(--tooltip-bg);
-  border-radius: 8px;
-  pointer-events: none;
-  font-size: 14px;
-  backdrop-filter: blur(6px);
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  overflow-x: hidden;
+.whitepaper-link:hover {
+  color: var(--hover-color);
+  text-decoration: underline wavy var(--hover-color) 2px;
+  transition: all 0.3s;
 }
