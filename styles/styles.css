@@ -1,6 +1,6 @@
-@import url(./styles/map_styles.css);
-@import url(./styles/nav_foot_styles.css);
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url(nav-foot.styles.css);
+@import url(map.styles.css);
+/* @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"); */
 @import url("https://api.fontshare.com/v2/css?f[]=plus-jakarta-sans@1,2&f[]=zodiak@1,2&display=swap");
 
 :root {
@@ -28,7 +28,7 @@ body {
   background: var(--bg-primary);
   color: var(--text-primary);
   font-family: "Plus Jakarta Sans", sans-serif;
-  /* !NOTE: Jugaad Fix for overflow */
+  /* !NOTE: Hack Fix for overflow */
   overflow-x: hidden;
 }
 
