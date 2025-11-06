@@ -29,16 +29,40 @@
   overflow-x: hidden;
 }
 
-/* Wrapper that holds the SVG map. It stretches to full page width. */
+.tooltip {
+  box-sizing: border-box;
+  max-width: min(360px, 45%);
+  word-break: break-word;
+  white-space: normal;
+}
+
 #map-svg-wrapper {
   width: 100%;
-  height: auto; /* let the SVG determine displayed height */
+  height: auto;
   position: relative;
 }
 
-/* The SVG should be block-level and scale to its container's width */
+#map-svg-wrapper {
+  overflow: hidden;
+}
+
 #map-svg-wrapper > svg {
   display: block;
   width: 100%;
   height: auto;
+}
+
+/* Mobile: make tooltips and map spacing friendlier on small screens */
+@media (max-width: 720px) {
+  .tooltip {
+    font-size: 12px;
+    padding: 6px 8px;
+    max-width: 85%;
+    word-wrap: break-word;
+    box-sizing: border-box;
+  }
+
+  #map-svg-wrapper {
+    padding: 0 8px;
+  }
 }

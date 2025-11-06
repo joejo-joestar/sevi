@@ -115,3 +115,39 @@ section > .container {
   text-decoration: underline wavy var(--text-secondary) 2px;
   transition: all 0.3s;
 }
+
+/* Mobile responsive tweaks */
+@media (max-width: 720px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  section#home {
+    padding-top: 12%;
+    padding-bottom: 4rem;
+  }
+
+  section > .container {
+    padding: 0 5%;
+    align-items: center;
+  }
+
+  .link-container {
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .subtext {
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  body {
+    font-size: 16px;
+  }
+}

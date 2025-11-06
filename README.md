@@ -40,3 +40,9 @@ sevi/
 ```
 
 ---
+
+## Acknowledgements
+
+- [India states and districts GeoJSON](https://github.com/udit-001/india-maps-data)
+
+---
