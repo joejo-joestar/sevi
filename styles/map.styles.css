@@ -1,30 +1,44 @@
 #map {
-    width: 100%;
+  width: 100%;
 }
 
 .state {
-    fill: var(--land-color);
-    stroke: #555;
-    stroke-width: 0.5px;
-    transition: fill 0.3s, stroke 0.3s;
+  fill: var(--land-color);
+  stroke: #555;
+  stroke-width: 0.5px;
+  transition: fill 0.3s, stroke 0.3s;
 }
 
 .state:hover {
-    fill: var(--hover-color);
-    stroke: var(--land-border);
-    cursor: pointer;
-    filter: drop-shadow(0 0 6px var(--hover-color));
+  fill: var(--hover-color);
+  stroke: var(--land-border);
+  cursor: pointer;
+  filter: drop-shadow(0 0 6px var(--hover-color));
 }
 
 .tooltip {
-    position: absolute;
-    padding: 8px 12px;
-    background: var(--tooltip-bg);
-    border-radius: 8px;
-    pointer-events: none;
-    font-size: 14px;
-    backdrop-filter: blur(6px);
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    overflow-x: hidden;
+  position: absolute;
+  padding: 8px 12px;
+  background: var(--tooltip-bg);
+  border-radius: 8px;
+  pointer-events: none;
+  font-size: 14px;
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  overflow-x: hidden;
+}
+
+/* Wrapper that holds the SVG map. It stretches to full page width. */
+#map-svg-wrapper {
+  width: 100%;
+  height: auto; /* let the SVG determine displayed height */
+  position: relative;
+}
+
+/* The SVG should be block-level and scale to its container's width */
+#map-svg-wrapper > svg {
+  display: block;
+  width: 100%;
+  height: auto;
 }

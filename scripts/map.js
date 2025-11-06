@@ -1,52 +1,82 @@
-const width = window.innerWidth;
-const height = width / .95; // Approximate aspect ratio for India map
+/**
+ * A function to render an interactive map of India with SEVI scores.
+ * Uses D3.js to create an SVG map with tooltips.
+ * @async
+ * @returns {Promise<Object>} A promise that resolves to the loaded GeoJSON object when the map is rendered.
+ */
+export async function renderMap() {
+  // Container to anchor the map. Prefer the #map element if present.
+  const containerNode = document.querySelector("#home #map") || document.body;
 
-const svg = d3.select("#home #map").append("svg")
-  .attr("width", width)
-  .attr("height", height);
+  // Remove any previously rendered wrapper inside the container to avoid duplicates
+  const prev = containerNode.querySelector("#map-svg-wrapper");
+  if (prev) prev.remove();
 
-const projection = d3.geoMercator()
-  .center([79.9629, 23.5937]) // India center (visually)
-  .scale(width * 1.5)
-  .translate([width / 2, height / 2]);
+  const naturalWidth = 1200;
+  const naturalHeight = Math.round(naturalWidth / 0.95); // preserve aspect
 
-const path = d3.geoPath(projection);
+  const wrapper = document.createElement("div");
+  wrapper.id = "map-svg-wrapper";
+  containerNode.appendChild(wrapper);
 
-const tooltip = d3.select("#tooltip");
+  const svg = d3
+    .select(wrapper)
+    .append("svg")
+    .attr("viewBox", `0 0 ${naturalWidth} ${naturalHeight}`)
+    .attr("preserveAspectRatio", "xMidYMid meet");
 
-// Example SEVI scores for Indian states
-// !TODO: Import real data
-const seviData = {
-  "Delhi": 0.72,
-  "Karnataka": 0.58,
-  "Kerala": 0.99,
-  "Maharashtra": 0.65,
-  "Tamil Nadu": 0.49,
-  "Uttar Pradesh": 0.79,
-  "West Bengal": 0.68,
-};
+  const projection = d3
+    .geoMercator()
+    .center([79.9629, 23.5937]) // India center (visually)
+    .scale(naturalWidth * 1.5)
+    .translate([naturalWidth / 2, naturalHeight / 2]);
 
-// Load India GeoJSON
-d3.json("https://raw.githubusercontent.com/Geohacker/india/master/state/india_state.geojson")
-  .then(india => {
-    svg.selectAll(".state")
+  const path = d3.geoPath().projection(projection);
+
+  const tooltip = d3.select("#tooltip");
+
+  // Example SEVI scores for Indian states
+  // !TODO: Import real data
+  const seviData = {
+    Delhi: 0.72,
+    Karnataka: 0.58,
+    Kerala: 0.99,
+    Maharashtra: 0.65,
+    "Tamil Nadu": 0.49,
+    "Uttar Pradesh": 0.79,
+    "West Bengal": 0.68,
+  };
+
+  // Load India GeoJSON and return the parsed object. Using async/await makes
+  // the control flow clearer but keeps the same Promise-based return value.
+  try {
+    const india = await d3.json(
+      "https://raw.githubusercontent.com/Geohacker/india/master/state/india_state.geojson"
+    );
+
+    svg
+      .selectAll(".state")
       .data(india.features)
       .join("path")
       .attr("class", "state")
       .attr("d", path)
       .on("mousemove", (event, d) => {
-        const [x, y] = d3.pointer(event);
         const stateName = d.properties.NAME_1; // Correct property
         const score = seviData[stateName];
         tooltip
-          .style("left", (event.pageX + 15) + "px")
-          .style("top", (event.pageY - 20) + "px")
+          .style("left", event.pageX + 15 + "px")
+          .style("top", event.pageY - 20 + "px")
           .style("opacity", 1)
           .html(
             `<strong>${stateName}</strong><br>` +
-            `SEVI Score: ${score !== undefined ? score.toFixed(2) : "N/A"}`
+              `SEVI Score: ${score !== undefined ? score.toFixed(2) : "N/A"}`
           );
       })
       .on("mouseout", () => tooltip.style("opacity", 0));
-  })
-  .catch(err => console.error("Error loading GeoJSON:", err));
+
+    return india;
+  } catch (err) {
+    console.error("Error loading GeoJSON:", err);
+    throw err;
+  }
+}
